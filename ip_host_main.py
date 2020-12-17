@@ -24,18 +24,18 @@ class IPHostMain:
                                           237, 238, 239, 240, 241, 242, 243, 244, 245, 246, 247, 248, 249, 250, 251,
                                           252, 253, 254, 255]
 
-    def make_ip_list(self, index):
+    def make_ip_list(self, index_str):
         # 总共是：16,777,216个IP地址
         # 当index=1,0到50
-        start = (index - 1) * 50
-        end = index * 50
+        start = (index_str - 1) * 50
+        end = index_str * 50
         for item in range(start, end, 1):
             if item in self._not_used_ip_range_prefix:
                 continue
             temp_list = []
-            for index, ip in enumerate(IP(f'{item}.0.0.0/8')):
+            for index_str, ip in enumerate(IP(f'{item}.0.0.0/8')):
                 temp_list.append(ip)
-                if len(temp_list) > 100000 or index > 167:
+                if len(temp_list) > 100000 or index_str > 167:
                     self.query_many(ip_list=temp_list)
                     temp_list.clear()
 
