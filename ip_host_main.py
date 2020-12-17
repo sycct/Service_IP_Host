@@ -66,7 +66,7 @@ class IPHostMain:
             self.write_csv_file([ip, host])
 
     def write_csv_file(self, data):
-        with open(self._save_country_file, 'w+', encoding='utf-8', newline='') as csv_file:
+        with open(self._save_country_file, 'a', encoding='utf-8', newline='') as csv_file:
             writer = csv.writer(csv_file)
             writer.writerow(data)
 
