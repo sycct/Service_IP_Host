@@ -74,6 +74,7 @@ class IPHostMain:
 if __name__ == '__main__':
     # 获取index配置参数
     get_config_file = os.path.join(os.getcwd(), 'files\\index.txt')
+    print(get_config_file)
     if os.path.exists(get_config_file):
         with open(get_config_file, 'r') as csv_file:
             # 文件存在，读取1行index
