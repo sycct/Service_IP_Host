@@ -17,7 +17,7 @@ class IPHostMain:
 
     def __init__(self):
         self._init_log = LoggingConfig().init_logging('Host_IP')
-        self._save_country_file = os.path.join(os.getcwd(), 'files\\host.csv')
+        self._save_country_file = os.path.join(os.getcwd(), 'files/host.csv')
         self._max_workers = 1000
         # 私有IP地址，排除
         self._not_used_ip_range_prefix = [0, 10, 127, 224, 225, 226, 227, 228, 229, 230, 231, 232, 233, 234, 235, 236,
