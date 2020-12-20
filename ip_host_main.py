@@ -57,7 +57,7 @@ class IPHostMain:
             # 判断是bot，获取IP
             host = socket.gethostbyaddr(ip)[0]
             host_ip = socket.gethostbyname(host)
-        except (socket.herror, socket.error, socket.gaierror) as e:
+        except (socket.herror, socket.error, socket.gaierror, UnicodeError) as e:
             # 验证失败，应该记录错误，以方便以后处理问题
             self._init_log.error(f'通过IP解析Host的时候出现错误，错误内容：{e},IP地址：{ip}')
             return False
