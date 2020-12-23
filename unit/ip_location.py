@@ -44,16 +44,10 @@ class IPLocation:
             file_name = f"{get_ip_str[0]}_{get_ip_str[1]}.csv"
             platform_str = platform.system()
             if platform_str == 'Windows':
-                file_path = os.path.join(os.getcwd(), f'files\\ip_location_csv')
+                file_path = os.path.join(os.getcwd(), f'files\\ip_location_csv\\{file_name}')
             else:
-                file_path = os.path.join(os.getcwd(), f'files/ip_location_csv')
-            if os.path.exists(file_path):
-                file_path += file_name
-                self.write_ip_csv(file_path, [item])
-            else:
-                os.makedirs(file_path)
-                file_path += file_name
-                self.write_ip_csv(file_path, [item])
+                file_path = os.path.join(os.getcwd(), f'files/ip_location_csv/{file_name}')
+            self.write_ip_csv(file_path, [ip])
 
     @staticmethod
     def write_ip_csv(file_path, data):
