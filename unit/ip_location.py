@@ -46,6 +46,9 @@ class IPLocation:
 
     @staticmethod
     def write_ip_csv(file_path, data):
-        with open(file_path, 'a', encoding='utf-8', newline='') as csv_file:
-            writer = csv.writer(csv_file)
-            writer.writerow(data)
+        if os.path.exists(file_path):
+            with open(file_path, 'a', encoding='utf-8', newline='') as csv_file:
+                writer = csv.writer(csv_file)
+                writer.writerow(data)
+        else:
+            os.makedirs(file_path)
