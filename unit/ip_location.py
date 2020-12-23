@@ -4,6 +4,7 @@
 from IPy import IP
 import csv
 import os
+import platform
 
 from . import load_qq_wry
 
@@ -41,7 +42,11 @@ class IPLocation:
             if get_ip_str is None:
                 return
             file_name = f"{get_ip_str[0]}_{get_ip_str[1]}.csv"
-            file_path = os.path.join(os.getcwd(), f'files/ip_location_csv/{file_name}')
+            platform_str = platform.system()
+            if platform_str == 'Windows':
+                file_path = os.path.join(os.getcwd(), f'files\\ip_location_csv\\{file_name}')
+            else:
+                file_path = os.path.join(os.getcwd(), f'files/ip_location_csv/{file_name}')
             self.write_ip_csv(file_path, [])
 
     @staticmethod
