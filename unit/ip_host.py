@@ -35,7 +35,7 @@ class IPHost:
             temp_list = []
             for index_str, ip in enumerate(IP(f'{item}.0.0.0/8')):
                 temp_list.append(ip)
-                if len(temp_list) > 100000 or index_str > 167:
+                if len(temp_list) > 100000 or index_str > 16700000:
                     self.query_many(ip_list=temp_list)
                     temp_list.clear()
 
