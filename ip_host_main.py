@@ -1,8 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: UTF-8 -*-
 
-import os
-
 from unit import ip_host, ip_location, get_index
 
 
@@ -32,8 +30,9 @@ class IPLocationHost:
         """
         # 获取index配置参数
         index = self._init_get_index.get_index_str()
-        self._init_ip_location.make_ip_list(index)
+        # self._init_ip_location.make_ip_list(index)
+        self._init_ip_location.make_int_ip_list()
 
 
 if __name__ == '__main__':
-    IPLocationHost().ip_host()
+    IPLocationHost().ip_location_by_qq_wry()
