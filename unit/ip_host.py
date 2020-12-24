@@ -2,8 +2,6 @@
 # -*- coding: UTF-8 -*-
 
 import socket
-import time
-
 from IPy import IP
 import csv
 import os
