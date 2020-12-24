@@ -36,4 +36,4 @@ class IPLocationHost:
 
 
 if __name__ == '__main__':
-    IPLocationHost().ip_location_by_qq_wry()
+    IPLocationHost().ip_host()

@@ -2,6 +2,8 @@
 # -*- coding: UTF-8 -*-
 
 import socket
+import time
+
 from IPy import IP
 import csv
 import os
@@ -18,7 +20,7 @@ class IPHost:
     def __init__(self):
         self._init_log = LoggingConfig().init_logging('Host_IP')
         self._save_country_file = os.path.join(os.getcwd(), 'files/host.csv')
-        self._max_workers = 1000
+        self._max_workers = 50
         # 私有IP地址，排除
         self._not_used_ip_range_prefix = [0, 10, 127, 224, 225, 226, 227, 228, 229, 230, 231, 232, 233, 234, 235, 236,
                                           237, 238, 239, 240, 241, 242, 243, 244, 245, 246, 247, 248, 249, 250, 251,
