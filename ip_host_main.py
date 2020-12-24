@@ -29,9 +29,10 @@ class IPLocationHost:
         :return: None
         """
         # 获取index配置参数
-        index = self._init_get_index.get_index_str()
+        # index = self._init_get_index.get_index_str()
         # self._init_ip_location.make_ip_list(index)
-        self._init_ip_location.make_int_ip_list()
+        # self._init_ip_location.make_int_ip_list()
+        self._init_ip_location.temp_ip_list()
 
 
 if __name__ == '__main__':

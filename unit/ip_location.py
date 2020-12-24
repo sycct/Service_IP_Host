@@ -36,6 +36,21 @@ class IPLocation:
                     self.multi_query_ip_location(temp_list)
                     temp_list.clear()
 
+    def temp_ip_list(self):
+        """
+        零时的一个IP段，主要是在程序运行的过程中，出现了错误
+        :return: None
+        """
+        for item in range(15, 50, 1):
+            if item in self._not_used_ip_range_prefix:
+                continue
+            temp_list = []
+            for index_str, ip in enumerate(IP(f'{item}.0.0.0/8')):
+                temp_list.append(str(ip))
+                if len(temp_list) > 100000 or index_str > 16700000:
+                    self.multi_query_ip_location(temp_list)
+                    temp_list.clear()
+
     def make_int_ip_list(self):
         """
         程序出现错误，中途跑到一半，将剩余的IP跑完
