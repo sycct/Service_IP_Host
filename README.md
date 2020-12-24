@@ -8,7 +8,7 @@ git clone https://github.com/sycct/Service_IP_Host.git
 
 cd /var/Service_IP_Host
 
-sudo apt-get install python-virtualenv -Y
+sudo apt-get install python-virtualenv -y
 
 virtualenv venv -p /usr/bin/python3
 
