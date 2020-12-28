@@ -31,6 +31,8 @@ class IPLocationHost:
         # 获取index配置参数
         index = self._init_get_index.get_index_str()
         self._init_ip_location.make_ip_list(index)
+
+    def process_error_ip_location_by_qq_wry(self):
         # 执行中间程序错误，中断部分
         self._init_ip_location.make_int_ip_list()
         # 执行程序错误，剩余部分
