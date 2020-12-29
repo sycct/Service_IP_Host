@@ -34,9 +34,9 @@ class IPLocationHost:
 
     def process_error_ip_location_by_qq_wry(self):
         # 执行中间程序错误，中断部分
-        self._init_ip_location.make_int_ip_list()
+        # self._init_ip_location.make_int_ip_list()
         # 执行程序错误，剩余部分
-        # self._init_ip_location.temp_ip_list()
+        self._init_ip_location.temp_ip_list()
 
 
 if __name__ == '__main__':

@@ -41,7 +41,7 @@ class IPLocation:
         零时的一个IP段，主要是在程序运行的过程中，出现了错误
         :return: None
         """
-        for item in range(15, 50, 1):
+        for item in range(61, 100, 1):
             if item in self._not_used_ip_range_prefix:
                 continue
             temp_list = []
