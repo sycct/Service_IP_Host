@@ -56,7 +56,7 @@ class IPLocation:
         程序出现错误，中途跑到一半，将剩余的IP跑完
         :return: list ip列表
         """
-        start_int_ip = IPy.IP('61.180.78.3').int()
+        start_int_ip = IPy.IP('61.186.49.0').int()
         end_int_ip = IPy.IP('62.0.0.0').int()
         temp_list = []
         for item in range(start_int_ip, end_int_ip, 1):
@@ -72,10 +72,8 @@ class IPLocation:
             get_ip_str = self._wry.lookup(ip)
             if get_ip_str is None:
                 return
-            region_name = get_ip_str[1].replace('/', '_').replace('(', '_').replace(')', '_') \
-                .replace('\\', '_').replace('<', '_').replace('>', '_').replace('*', '_').replace('|', '_') \
-                .replace(':', '_').replace('?', '_')
-            file_name = f"{get_ip_str[0]}_{region_name}.csv"
+            region_name = "".join(i for i in get_ip_str[1] if i.isalnum())
+            file_name = f"{get_ip_str[0].replace('/', '_')}_{region_name}.csv"
             platform_str = platform.system()
             if platform_str == 'Windows':
                 file_path = os.path.join(os.getcwd(), f'files\\ip_location_csv\\{file_name}')
