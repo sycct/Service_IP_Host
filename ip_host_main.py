@@ -23,6 +23,10 @@ class IPLocationHost:
         index = self._init_get_index.get_index_str()
         self._init_host.make_ip_list(index)
 
+    def ip_host_missing_ip_range(self):
+        # 补充中间缺失部分IP地址
+        self._init_host.missing_ip_range()
+
     def ip_location_by_qq_wry(self):
         """
         通过纯真IP数据库，将IP保存到CSV文件，文件名是IP的地理位置
@@ -40,4 +44,4 @@ class IPLocationHost:
 
 
 if __name__ == '__main__':
-    IPLocationHost().ip_location_by_qq_wry()
+    IPLocationHost().ip_host_missing_ip_range()

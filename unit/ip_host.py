@@ -6,6 +6,7 @@ from IPy import IP
 import csv
 import os
 from concurrent import futures
+import IPy
 
 from config import LoggingConfig
 
@@ -38,6 +39,17 @@ class IPHost:
                 if len(temp_list) > 100000 or index_str > 16700000:
                     self.query_many(ip_list=temp_list)
                     temp_list.clear()
+
+    def missing_ip_range(self):
+        # 中间缺失IP地址查询rDNS
+        start = IPy.IP('1.51.108.218').int()
+        end = IPy.IP('2.0.0.0').int()
+        temp_list = []
+        for int_ip in range(start, end, 1):
+            # 将int ip装换成ip形式，加入到列表
+            temp_list.append(IPy.intToIp(int_ip, version=4))
+            if len(temp_list) > end - start - 2:
+                self.query_many(temp_list)
 
     def query_many(self, ip_list):
         with futures.ThreadPoolExecutor(self._max_workers) as executor:
