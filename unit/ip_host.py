@@ -30,15 +30,7 @@ class IPHost:
         # 当index=1,0到50
         start = (index_str - 1) * 50
         end = index_str * 50
-        for item in range(start, end, 1):
-            if item in self._not_used_ip_range_prefix:
-                continue
-            temp_list = []
-            for index_str, ip in enumerate(IP(f'{item}.0.0.0/8')):
-                temp_list.append(ip)
-                if len(temp_list) > 100000 or index_str > 16700000:
-                    self.query_many(ip_list=temp_list)
-                    temp_list.clear()
+        self.traverse_ip_range(start, end)
 
     def missing_ip_range(self):
         # 中间缺失IP地址查询rDNS
@@ -50,6 +42,24 @@ class IPHost:
             temp_list.append(IPy.intToIp(int_ip, version=4))
             if len(temp_list) > end - start - 2:
                 self.query_many(temp_list)
+
+    def other_ip_range(self):
+        # 由于单个服务器循很慢，所以从1-50 IP段又分出10-50IP段，给其他服务器运行
+        start = 10
+        end = 50
+        self.traverse_ip_range(start, end)
+
+    def traverse_ip_range(self, start, end):
+        # 循环IP段，注意：必须是/8结尾的，否则程序会出错或者有些IP地址没有跑
+        for item in range(start, end, 1):
+            if item in self._not_used_ip_range_prefix:
+                continue
+            temp_list = []
+            for index_str, ip in enumerate(IP(f'{item}.0.0.0/8')):
+                temp_list.append(ip)
+                if len(temp_list) > 100000 or index_str > 16700000:
+                    self.query_many(ip_list=temp_list)
+                    temp_list.clear()
 
     def query_many(self, ip_list):
         with futures.ThreadPoolExecutor(self._max_workers) as executor:
