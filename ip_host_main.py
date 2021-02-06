@@ -41,11 +41,11 @@ class IPLocationHost:
         self._init_ip_location.make_ip_list(index)
 
     def process_error_ip_location_by_qq_wry(self):
-        # 执行中间程序错误，中断部分
+        # 查询地址，执行中程序错误，中断部分
         self._init_ip_location.make_int_ip_list()
         # 执行程序错误，剩余部分
         self._init_ip_location.temp_ip_list()
 
 
 if __name__ == '__main__':
-    IPLocationHost().process_error_ip_location_by_qq_wry()
+    IPLocationHost().ip_host_missing_ip_range()
