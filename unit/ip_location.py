@@ -41,7 +41,7 @@ class IPLocation:
         零时的一个IP段，主要是在程序运行的过程中，出现了错误
         :return: None
         """
-        for item in range(65, 100, 1):
+        for item in range(101, 200, 1):
             if item in self._not_used_ip_range_prefix:
                 continue
             temp_list = []
@@ -56,8 +56,8 @@ class IPLocation:
         程序出现错误，中途跑到一半，将剩余的IP跑完
         :return: list ip列表
         """
-        start_int_ip = IPy.IP('64.254.0.0').int()
-        end_int_ip = IPy.IP('65.0.0.0').int()
+        start_int_ip = IPy.IP('100.175.50.153').int()
+        end_int_ip = IPy.IP('101.0.0.0').int()
         temp_list = []
         for item in range(start_int_ip, end_int_ip, 1):
             # 将int ip装换成ip形式，加入到列表

@@ -48,4 +48,4 @@ class IPLocationHost:
 
 
 if __name__ == '__main__':
-    IPLocationHost().ip_host_other_ip_range()
+    IPLocationHost().process_error_ip_location_by_qq_wry()
