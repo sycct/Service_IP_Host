@@ -34,7 +34,7 @@ class IPHost:
 
     def missing_ip_range(self):
         # 中间缺失IP地址查询rDNS
-        start = IPy.IP('100.175.50.153').int()
+        start = IPy.IP('100.183.87.211').int()
         end = IPy.IP('101.0.0.0').int()
         temp_list = []
         for int_ip in range(start, end, 1):
