@@ -34,7 +34,7 @@ class IPHost:
 
     def missing_ip_range(self):
         # 中间缺失IP地址查询rDNS
-        start = IPy.IP('100.189.177.183').int()
+        start = IPy.IP('100.189.183.103').int()
         end = IPy.IP('101.0.0.0').int()
         temp_list = []
         for int_ip in range(start, end, 1):
@@ -43,6 +43,7 @@ class IPHost:
             # 队列100,000条数据开始循环，同时避免最后几条无法循环
             if len(temp_list) > 100000 or int_ip > 33500000:
                 self.query_many(temp_list)
+                temp_list.clear()
 
     def other_ip_range(self):
         # 由于单个服务器循很慢，所以从1-50 IP段又分出10-50IP段，给其他服务器运行
