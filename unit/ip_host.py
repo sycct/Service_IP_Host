@@ -41,7 +41,7 @@ class IPHost:
             # 将int ip装换成ip形式，加入到列表
             temp_list.append(IPy.intToIp(int_ip, version=4))
             # 队列100,000条数据开始循环，同时避免最后几条无法循环
-            if len(temp_list) > 100000 or int_ip > 33500000:
+            if len(temp_list) > 100000 or int_ip > 1694454855:
                 self.query_many(temp_list)
                 temp_list.clear()
 
