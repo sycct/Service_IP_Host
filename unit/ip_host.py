@@ -19,7 +19,7 @@ class IPHost:
     def __init__(self):
         self._init_log = LoggingConfig().init_logging('Host_IP')
         self._save_country_file = os.path.join(os.getcwd(), 'files/host.csv')
-        self._max_workers = 50
+        self._max_workers = 100
         # 私有IP地址，排除
         self._not_used_ip_range_prefix = [0, 10, 127, 224, 225, 226, 227, 228, 229, 230, 231, 232, 233, 234, 235, 236,
                                           237, 238, 239, 240, 241, 242, 243, 244, 245, 246, 247, 248, 249, 250, 251,
@@ -34,14 +34,14 @@ class IPHost:
 
     def missing_ip_range(self):
         # 中间缺失IP地址查询rDNS
-        start = IPy.IP('100.189.185.12').int()
-        end = IPy.IP('101.0.0.0').int()
+        start = IPy.IP('150.174.59.58').int()
+        end = IPy.IP('200.0.0.0').int()
         temp_list = []
         for int_ip in range(start, end, 1):
             # 将int ip装换成ip形式，加入到列表
             temp_list.append(IPy.intToIp(int_ip, version=4))
             # 队列100,000条数据开始循环，同时避免最后几条无法循环
-            if len(temp_list) > 100000 or int_ip > 1694454855:
+            if len(temp_list) > 100000 or int_ip > 3355400826:
                 self.query_many(temp_list)
                 temp_list.clear()
 
