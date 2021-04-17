@@ -117,7 +117,7 @@ class IPHost:
         try:
             get_answer = result_json['Answer'][0]
         except KeyError:
-            self._init_log.error(f"没有找到Answer。")
+            self._init_log.error(f"{ip},没有找到Answer。")
             return False
         get_type = get_answer['type']
         if get_type == 12:
