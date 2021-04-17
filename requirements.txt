@@ -1,3 +1,2 @@
 IPy==1.01
-qqwry-py3==1.2.1
-six==1.15.0
+requests==2.25.1
