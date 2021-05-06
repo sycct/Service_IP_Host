@@ -44,7 +44,7 @@ class IPHost:
             temp_list.append(IPy.intToIp(int_ip, version=4))
             # 队列100,000条数据开始循环，同时避免最后几条无法循环
             if len(temp_list) > 100000 or int_ip > 1006626801:
-                self.query_many_by_google_dns(temp_list)
+                self.query_many(temp_list)
                 temp_list.clear()
 
     def other_ip_range(self):
