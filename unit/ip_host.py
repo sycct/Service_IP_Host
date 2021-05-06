@@ -36,14 +36,14 @@ class IPHost:
 
     def missing_ip_range(self):
         # 中间缺失IP地址查询rDNS
-        start = IPy.IP('200.111.216.10').int()
-        end = IPy.IP('224.0.0.0').int()
+        start = IPy.IP('51.48.168.49').int()
+        end = IPy.IP('60.0.0.0').int()
         temp_list = []
         for int_ip in range(start, end, 1):
             # 将int ip装换成ip形式，加入到列表
             temp_list.append(IPy.intToIp(int_ip, version=4))
             # 队列100,000条数据开始循环，同时避免最后几条无法循环
-            if len(temp_list) > 100000 or int_ip > 3758073002:
+            if len(temp_list) > 100000 or int_ip > 1006626801:
                 self.query_many_by_google_dns(temp_list)
                 temp_list.clear()
 
